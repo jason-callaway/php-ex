@@ -37,7 +37,7 @@ while ($line = mysql_fetch_array($result, MYSQL_ASSOC)) {
 }
 echo "</table>\n";
 
-$query = 'UPDATE view_counter SET views=views+1');
+$query = 'UPDATE view_counter SET views=views+1';
 $result = mysql_query($query) or die('Query failed: ' . mysql_error());
 
 
