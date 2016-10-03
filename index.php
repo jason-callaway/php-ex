@@ -17,7 +17,7 @@ try {
         try {
             $db_selected = mysql_select_db(getenv('DATABASE_NAME'), $link);
         } catch (Exception $ed) {
-            echo 'Faled to select db\n'
+            echo 'Faled to select db\n';
         }
 
         $query = 'CREATE TABLE view_counter (views integer)';
