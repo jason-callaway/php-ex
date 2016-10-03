@@ -20,9 +20,9 @@ try {
             die('Faled to select db');
         }
 
-        $query = 'CREATE TABLE view_counter (views integer)';
+        $query = 'CREATE TABLE ' . getenv('DATABASE_NAME') . '.view_counter (views integer)';
         $result = mysql_query($query) or die('Create table failed: ' . mysql_error());
-        $query = 'INSERT INTO view_counter VALUES (0)';
+        $query = 'INSERT INTO ' . getenv('DATABASE_NAME') . '.view_counter VALUES (0)';
         $result = mysql_query($query) or die('Insert zero into failed: ' . mysql_error());
     } catch (Exception $ee) {
        die('Could not create database or table');
@@ -44,7 +44,7 @@ while ($line = mysql_fetch_array($result, MYSQL_ASSOC)) {
 }
 echo "</table>\n";
 
-$query = 'UPDATE view_counter SET views=views+1';
+$query = 'UPDATE ' . getenv('DATABASE_NAME') . '.view_counter SET views=views+1';
 $result = mysql_query($query) or die('Update view_counter failed: ' . mysql_error());
 
 mysql_free_result($result);
