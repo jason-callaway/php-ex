@@ -6,9 +6,9 @@
 <?php
 // Connecting, selecting database
 $link = mysql_connect(getenv('DATABASE_SERVICE_NAME'), getenv('DATABASE_USER'), getenv('DATABASE_PASSWORD')) or die('Could not connect: ' . mysql_error());
-echo 'Connected successfully';
+echo 'Connected successfully\n';
 try {
-    mysql_select_db(getenv('DATABASE_NAME')) or die('Could not select database');
+    mysql_select_db(getenv('DATABASE_NAME')) or die('Could not select database\n');
 } catch (Exception $e) {
     try {
         $query = 'CREATE DATABASE ' . getenv('DATABASE_NAME');
