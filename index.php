@@ -30,7 +30,7 @@ try {
 }
 
 // Performing SQL query
-$query = 'SELECT views FROM view_counter';
+$query = 'SELECT views FROM ' . getenv('DATABASE_NAME') . '.view_counter';
 $result = mysql_query($query) or die('Select views failed: ' . mysql_error());
 
 // Printing results in HTML
