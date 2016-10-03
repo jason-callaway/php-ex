@@ -12,7 +12,7 @@ try {
 } catch (Exception $e) {
     try {
         $query = 'CREATE DATABASE ' . getenv('DATABASE_NAME');
-        $result = mysql_query($query) or die('Query failed: ' . mysql_error());
+        $result = mysql_query($query) or die('Create database failed: ' . mysql_error());
 
         try {
             $db_selected = mysql_select_db(getenv('DATABASE_NAME'), $link);
@@ -31,7 +31,7 @@ try {
 
 // Performing SQL query
 $query = 'SELECT views FROM view_counter';
-$result = mysql_query($query) or die('Query failed: ' . mysql_error());
+$result = mysql_query($query) or die('Select views failed: ' . mysql_error());
 
 // Printing results in HTML
 echo "<table>\n";
@@ -45,7 +45,7 @@ while ($line = mysql_fetch_array($result, MYSQL_ASSOC)) {
 echo "</table>\n";
 
 $query = 'UPDATE view_counter SET views=views+1';
-$result = mysql_query($query) or die('Query failed: ' . mysql_error());
+$result = mysql_query($query) or die('Update view_counter failed: ' . mysql_error());
 
 
 mysql_free_result($result);
