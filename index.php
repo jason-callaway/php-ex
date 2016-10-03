@@ -18,7 +18,7 @@ try {
         $query = 'INSERT INTO view_counter VALUES (0)';
         $result = mysql_query($query) or die('Query failed: ' . mysql_error());
     } catch (Exception $ee) {
-       echo 'Could not create database or table'
+       echo 'Could not create database or table';
     }
 }
 
