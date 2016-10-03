@@ -21,9 +21,9 @@ try {
         }
 
         $query = 'CREATE TABLE view_counter (views integer)';
-        $result = mysql_query($query) or die('Query failed: ' . mysql_error());
+        $result = mysql_query($query) or die('Create table failed: ' . mysql_error());
         $query = 'INSERT INTO view_counter VALUES (0)';
-        $result = mysql_query($query) or die('Query failed: ' . mysql_error());
+        $result = mysql_query($query) or die('Insert zero into failed: ' . mysql_error());
     } catch (Exception $ee) {
        echo 'Could not create database or table';
     }
