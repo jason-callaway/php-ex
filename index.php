@@ -13,6 +13,13 @@ try {
     try {
         $query = 'CREATE DATABASE ' . getenv('DATABASE_NAME');
         $result = mysql_query($query) or die('Query failed: ' . mysql_error());
+
+        try {
+            $db_selected = mysql_select_db(getenv('DATABASE_NAME'), $link);
+        } catch (Exception $ed) {
+            echo 'Faled to select db\n'
+        }
+
         $query = 'CREATE TABLE view_counter (views integer)';
         $result = mysql_query($query) or die('Query failed: ' . mysql_error());
         $query = 'INSERT INTO view_counter VALUES (0)';
